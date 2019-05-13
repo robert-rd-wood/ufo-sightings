@@ -2,8 +2,9 @@
 var tableData = data;
 var tbody = d3.select("tbody");
 
+// Write full table
 tableData.forEach(writeTable);
-    
+
 function writeTable(ufoReport) {
 
     var row = tbody.append("tr");
@@ -15,12 +16,10 @@ function writeTable(ufoReport) {
     });
 }
     
-function filterTable(ufoReport) {
-
-}
-
+// Declare variable for Filter button
 var filterButton = d3.select("#filter-btn");
 
+// Function to handle Filter
 function handleFilter(event) {
 
     // Prevent the page from refreshing
@@ -32,8 +31,11 @@ function handleFilter(event) {
     // Get the value property of the input element
     var inputValue = inputElement.property("value");
 
+    // Delete current table
+    d3.selectAll("tbody>tr").remove();
+
     tableData.forEach(function(ufoReport) {
-    // If function is called with a date argument, display matching date records
+        //  If the datetime field matches the input value, display matching date record
         if (Object.entries(ufoReport)[0][1] == inputValue) {
             var row = tbody.append("tr");
             Object.entries(ufoReport).forEach(function([key, value]) {
@@ -46,4 +48,5 @@ function handleFilter(event) {
     });
 }
 
+// Define my button
 filterButton.on("click",handleFilter);
