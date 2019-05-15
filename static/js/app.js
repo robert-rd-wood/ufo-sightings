@@ -1,11 +1,14 @@
 // from data.js
 var tableData = data;
 var tbody = d3.select("tbody");
+var stateName = d3.select("#state-name");
+var countryName = d3.select("#country-name");
+var shapeName = d3.select("#shape-name");
 
 // Write full table
 tableData.forEach(writeTable);
 
-// Write row and columns
+// Write table row and columns
 function writeTable(ufoReport) {
 
     // Append row element
@@ -19,6 +22,29 @@ function writeTable(ufoReport) {
         cell.text(value);
     });
 }
+
+// Create array of states
+var stateArray = [];
+
+for (var i=0; i<tableData.length; i+=1) {
+    // Declare current state variable and set equal to the corresponding element in the object
+    var currentState = tableData[i].state;
+    // If the current state is not already in the array, add it
+    if (stateArray.includes(currentState) == false) {
+        stateArray.push(currentState);
+    }
+}
+
+// Sort stateArray alphabetically
+stateArray.sort();
+
+console.log(stateArray);
+
+// Populate State select dropdown
+stateArray.forEach(function(state) {
+    var option = stateName.append("option");
+    option.text(state);
+});
 
 // Function to handle Filter
 function handleFilter(event) {
