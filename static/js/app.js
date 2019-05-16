@@ -284,10 +284,6 @@ function handleFilter(event) {
         writeEmptyMessage();
     }
 
-    // If a state was entered, rewrite the full select dropdown
-    // (repopulation in case data has already been filtered one or more times)
-    
-
     // If no state was entered, rewrite the select dropdown to show viable selections
     if (stateBool == false) {
         stateSelectDropdown(filteredArray5);
