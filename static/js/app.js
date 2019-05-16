@@ -1,11 +1,14 @@
-// from data.js
+/*
+*********************************************
+UFO Tracker - JavaScript and DOM Manipulation
+*********************************************
+*/
+
+// Declare variable to hold table data (from data.js)
 var tableData = data;
+
+// Declare variable to store table body element
 var tbody = d3.select("tbody");
-var dateField = d3.select("#datetime");
-var cityName = d3.select("#city-name");
-var stateName = d3.select("#state-name");
-var countryName = d3.select("#country-name");
-var shapeName = d3.select("#shape-name");
 
 // Write full table
 tableData.forEach(writeTable);
@@ -48,6 +51,9 @@ function stateSelectDropdown(tableData) {
     // Create array of states
     var stateArray = [];
 
+    // Declare variable to store select element
+    var stateName = d3.select("#state-name");
+
     // Delete current added options in select dropdown (leaving initial blank option)
     d3.selectAll("#state-name>#added-option").remove();
 
@@ -88,6 +94,9 @@ function countrySelectDropdown(tableData) {
     // Create array of countries
     var countryArray = [];
 
+    // Declare variable to store select element
+    var countryName = d3.select("#country-name");
+
     // Delete current added options in select dropdown (leaving initial blank option)
     d3.selectAll("#country-name>#added-option").remove();
 
@@ -127,6 +136,9 @@ function shapeSelectDropdown(tableData) {
 
     // Create array of shapes
     var shapeArray = [];
+
+    // Declare variable to store select element
+    var shapeName = d3.select("#shape-name");
 
     // Delete current added options in select dropdown (leaving initial blank option)
     d3.selectAll("#shape-name>#added-option").remove();
@@ -295,12 +307,11 @@ function handleClear(event) {
     d3.event.preventDefault();
 
     // Clear input fields
-    dateField.value='';
-    // cityName.text("");
-    // stateName.text("");
-    // countryName.text("");
-    // shapeName.text("");
-    dateField.text("testing");
+    document.getElementById('datetime').value = '';
+    document.getElementById('city-name').value = '';
+    document.getElementById('state-name').value = '';
+    document.getElementById('country-name').value = '';
+    document.getElementById('shape-name').value = '';
 
     // Delete current table
     d3.selectAll("tbody>tr").remove();
