@@ -2,7 +2,7 @@
 UFO Sightings - JavaScript and DOM Manipulation
 
 **Description**  
-placeholder text  
+HTML page and associated JavaScript files that will create a table dynamically based upon the data.js dataset. The table can also be filtered by date, city, state, country, and shape.  
 
 ![alt text](screenshots/main_page.png "HTML Screenshot")
 
